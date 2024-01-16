@@ -2,8 +2,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: black;
-  color: white;
+  /*background-color: black;*/
+  /*color: white;*/
 }
 div {
   display: flex;
@@ -14,4 +14,9 @@ div {
 img {
   margin-top: 20px;
   border-radius: 20px;
+  transition: 500ms;
+}
+img:hover {
+ transition: 500ms;
+  transform: scale(110%);
 }

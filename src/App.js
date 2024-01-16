@@ -1,23 +1,47 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-const user = {
-    name: 'Luffy',
-    imageURL: 'https://pa1.aminoapps.com/6691/8cf24a98f7bb1229f81a864caa248230ad5ad8d1_00.gif',
-    imageSize: 300,
-    age: 17
-}
+const ColorToggle = () => {
+    // Используем state для хранения цвета каждого квадрата
+    const [square1Color, setSquare1Color] = useState('red');
+    const [square2Color, setSquare2Color] = useState('blue');
 
-export default function Peofile() {
+    // Функция для обработки клика и изменения цветов квадратов
+    const handleSquareClick = (squareNumber) => {
+        if (squareNumber === 1) {
+            // Меняем цвет первого квадрата
+            setSquare1Color(square1Color === 'red' ? 'blue' : 'red');
+        } else if (squareNumber === 2) {
+            // Меняем цвет второго квадрата
+            setSquare2Color(square2Color === 'blue' ? 'red' : 'blue');
+        }
+    };
+
     return (
         <div>
-            <img className='avatar'
-                 src={user.imageURL}
-                 alt={"photo" + user.name}
-                 style={{width: user.imageSize, height: user.imageSize}}
-            />
-            <h1>{user.name}</h1>
-            <p>{user.age}</p>
-            <p>{user.name} капитан пиратской каманды</p>
+            <div
+                style={{
+                    width: '100px',
+                    height: '100px',
+                    backgroundColor: square1Color,
+                    margin: '10px',
+                    display: 'inline-block',
+                    cursor: 'pointer',
+                }}
+                onClick={() => handleSquareClick(1)}
+            ></div>
+            <div
+                style={{
+                    width: '100px',
+                    height: '100px',
+                    backgroundColor: square2Color,
+                    margin: '10px',
+                    display: 'inline-block',
+                    cursor: 'pointer',
+                }}
+                onClick={() => handleSquareClick(2)}
+            ></div>
         </div>
-    )
-}
+    );
+};
+
+export default ColorToggle;
